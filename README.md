@@ -179,3 +179,51 @@ Cost: 2.2; Ingredients: Coffee, Milk, Whip
 ```
 
 ### Facade Pattern
+##### "The Facade design pattern provides a single interface to a complex subsystem. Instead of exposing the user to a set of classes and their APIs, you only expose one simple unified API."
+
+![facade2](https://cloud.githubusercontent.com/assets/8895399/24435754/6753d390-1461-11e7-9993-9dbe9b900159.png)
+
+##### "LibraryAPI will be exposed to other code, but will hide the HTTPClient and PersistencyManager complexity from the rest of the app."
+![design-patterns-facade-uml](https://cloud.githubusercontent.com/assets/8895399/24435696/1326e988-1461-11e7-9eb0-bf5d2f921070.png)
+
+##### So,
+```
+private let persistencyManager: PersistencyManager
+private let httpClient: HTTPClient
+private let isOnline: Bool
+```
+
+```
+override init() {
+  persistencyManager = PersistencyManager()
+  httpClient = HTTPClient()
+  isOnline = false
+ 
+  super.init()
+}
+```
+
+```
+func getAlbums() -> [Album] {
+  return persistencyManager.getAlbums()
+}
+ 
+func addAlbum(album: Album, index: Int) {
+  persistencyManager.addAlbum(album, index: index)
+  if isOnline {
+    httpClient.postRequest("/api/addAlbum", body: album.description)
+  }
+}
+ 
+func deleteAlbum(index: Int) {
+  persistencyManager.deleteAlbumAtIndex(index)
+  if isOnline {
+    httpClient.postRequest("/api/deleteAlbum", body: "\(index)")
+  }
+}
+```
+
+Source: 
+- https://medium.com/jeremy-codes/decorator-pattern-in-swift-e5fa11ea3c3f
+- https://github.com/ochococo/Design-Patterns-In-Swift
+- https://www.raywenderlich.com/86477/introducing-ios-design-patterns-in-swift-part-1
