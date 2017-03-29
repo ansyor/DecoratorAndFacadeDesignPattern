@@ -228,7 +228,7 @@ func deleteAlbum(index: Int) {
 }
 ```
 
-Source: 
+##### Reference: 
 - https://medium.com/jeremy-codes/decorator-pattern-in-swift-e5fa11ea3c3f
 - https://github.com/ochococo/Design-Patterns-In-Swift
 - https://www.raywenderlich.com/86477/introducing-ios-design-patterns-in-swift-part-1
