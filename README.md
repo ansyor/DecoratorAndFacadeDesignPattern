@@ -180,7 +180,7 @@ Result:
 ```
 Cost : 1.0; Ingredients: Coffee
 Cost : 1.5; Ingredients: Coffee, Milk
-Cost: 2.2; Ingredients: Coffee, Milk, Whip
+Cost : 2.2; Ingredients: Coffee, Milk, Whip
 ```
 
 ### Facade Pattern
