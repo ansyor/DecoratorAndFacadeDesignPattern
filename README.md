@@ -5,7 +5,7 @@
 
 #### Without Decorator Pattern
 
-```
+```swift
 protocol Character {
     func getHealth() -> Int
 }
@@ -37,7 +37,7 @@ struct OrcWarlord: Character {
 
 #### Using Decorator Pattern
 
-```
+```swift
 // Core Component
 protocol Character {
     func getHealth() -> Int
@@ -87,21 +87,26 @@ struct Epic: CharacterType {
 
 let orc = Orc()
 let hp = orc.getHealth() // 10
+
 let orcWarlord = Warlord(base: orc)
 let hp = orcWarlord.getHealth() // 60
+
 let epicOrcWarlord = Epic(base: orcWarlord)
 let hp = epicOrcWarlord.getHealth() // 90
+
 let doubleEpicOrcWarlord = Epic(base: epicOrcWarlord)
 let hp = doubleEpicOrcWarlord.getHealth() // 120
+
 let elf = Elf()
 let hp = elf.getHealth() // 5
+
 let elfWarlord = Warlord(base: elf)
 let hp = elfWarlord.getHealth() // 55
 elfWarlord.battleCry() // "RAWR"
 ```
 
 #### Using Decorator Pattern - Other example
-```
+```swift
 protocol Coffee {
 	func getCost() -> Double
 	func getIngredients() -> String
@@ -148,7 +153,7 @@ final class Milk: CoffeeDecorator {
 	}
 }
 
-final class WhipCoffee: CoffeeDecorator {
+final class Whip: CoffeeDecorator {
 	required init(decoratedCoffee: Coffee) {
 		super.init(decoratedCoffee: decoratedCoffee)
 	}
@@ -187,7 +192,7 @@ Cost: 2.2; Ingredients: Coffee, Milk, Whip
 ![design-patterns-facade-uml](https://cloud.githubusercontent.com/assets/8895399/24435696/1326e988-1461-11e7-9eb0-bf5d2f921070.png)
 
 ##### So,
-```
+```swift
 private let persistencyManager: PersistencyManager
 private let httpClient: HTTPClient
 private let isOnline: Bool
