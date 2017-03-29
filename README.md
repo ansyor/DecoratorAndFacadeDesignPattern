@@ -172,7 +172,7 @@ var someCoffee: Coffee = SimpleCoffee()
 print("Cost : \(someCoffee.getCost()); Ingredients: \(someCoffee.getIngredients())")
 someCoffee = Milk(decoratedCoffee: someCoffee)
 print("Cost : \(someCoffee.getCost()); Ingredients: \(someCoffee.getIngredients())")
-someCoffee = WhipCoffee(decoratedCoffee: someCoffee)
+someCoffee = Whip(decoratedCoffee: someCoffee)
 print("Cost: \(someCoffee.getCost()); Ingredients: \(someCoffee.getIngredients())")
 ```
 
