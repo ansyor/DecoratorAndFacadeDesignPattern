@@ -198,7 +198,7 @@ private let httpClient: HTTPClient
 private let isOnline: Bool
 ```
 
-```
+```swift
 override init() {
   persistencyManager = PersistencyManager()
   httpClient = HTTPClient()
@@ -208,7 +208,7 @@ override init() {
 }
 ```
 
-```
+```swift
 func getAlbums() -> [Album] {
   return persistencyManager.getAlbums()
 }
